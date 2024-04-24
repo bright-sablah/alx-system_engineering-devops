@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# print "best school" 10 times using unil loop
+counter = 1
+until [ $counter -gt 10 ]; do
+	echo "Best School"
+	((counter++))
+done
