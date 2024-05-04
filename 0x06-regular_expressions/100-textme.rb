@@ -1,2 +1,10 @@
 #!/usr/bin/env ruby
-puts ARGV[0].scan(//).join
+
+def extract(text)
+	sender = text.match(/\[from:([^[\]]*)\]/)[1]
+	receiver = text.match(/\[to:([^[\]]*)\]/)[1]
+	flags = text.match(/\[flags:([^[\]]*)\]/)[1]
+	"#{sender},#{receiver},#{flags}"
+end
+
+puts extract(ARGV[0])
