@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# print "best school" 10 times using unil loop
+# print using until loop
 counter=1
 until [ $counter -gt 10 ]; do
 	echo "Best School"
-	((counter++))
+ 	((counter++))
 done

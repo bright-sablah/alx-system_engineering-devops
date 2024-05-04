@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# prints process PID
+
+pid=$(pgrep -f "7-highlander")
+if [ -n "$pid" ]; then
+	pkill -f "7-highlander"
+fi
+exit

@@ -2,9 +2,5 @@
 # display content of current directory
 
 for file in *; do
-# check if file is not hidden and the file has dash in its name
-if [[ ! "$file" == .* && "$file" =~ - ]]; then
-		name=$(echo "$file" | cut -d '-' -f 2-)
-  		echo "$name"
-     	fi
+	echo "$file" | cut -d '-' -f 2
 done

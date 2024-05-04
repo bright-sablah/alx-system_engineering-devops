@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# displays current processes
+
+ps aux --forest
+exit

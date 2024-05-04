@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+# manage my process (daemon)
+
+# start function
+start(){
+	./manage_my_process &
+	echo $! > /var/run/my_process.pid
+	echo "manage_my_process started."
+}
+
+# stop function
+stop(){
+	if [ -f "/var/run/my_process.pid" ]; then
+		pid=$(cat /var/run/my_process.pid)
+		kill $pid
+		rm -f /var/run/my_process.pid
+		echo "manage_my_process stopped."
+	fi
+}
+
+# restart function
+restart(){
+	if [ -f "/var/run/my_process.pid" ]; then
+		pid=$(cat /var/run/my_process.pid)
+		kill $pid
+		rm -f /var/run/my_process.pid
+	fi
+	./manage_my_process &
+	echo $! > /var/run/my_process.pid
+	echo "manage_my_process restarted."
+}
+
+
+# checking argument provided
+case "$1" in
+	start)
+		start
+		;;
+	stop)
+		stop
+		;;
+	restart)
+		restart
+		;;
+	*)
+		echo "Usage: manage_my_process {start|stop|restart}"
+esac
+exit 0

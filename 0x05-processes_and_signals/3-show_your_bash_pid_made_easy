@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# prints process PID
+
+pgrep -l bash
+exit

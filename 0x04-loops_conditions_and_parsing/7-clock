@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# clock print
+
+hours=0
+while [ $hours -le 12 ]; do
+# print hour mark
+	printf "Hour: %d\n" $hours
+# display minutes
+	minutes=1
+	while [ $minutes -le 59 ]; do
+		printf "%d\n" $minutes
+		((minutes++))
+	done
+	((hours++))
+done

@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# process id and pid file
+
+# defining function to handle SIGTERM & SIGQUIT signal
+sigterm_sigquit_func(){
+	echo "I hate the kill command"
+	rm -f /var/run/myscript.pid
+	exit 0
+}
+
+# defining fnction to handle SIGINT signal
+sigint_func(){
+	echo "Y U no love me?!"
+}
+
+
+# trap SIGTERM signal and call sigterm_func
+trap 'sigterm_sigquit_func' SIGTERM SIGQUIT
+trap 'sigint_func' SIGINT
+
+# store process ID in file
+echo $$ > /var/run/myscript.pid
+
+#printing loop
+while true; do
+	echo "To infinity and beyond"
+	sleep 2
+done
+exit

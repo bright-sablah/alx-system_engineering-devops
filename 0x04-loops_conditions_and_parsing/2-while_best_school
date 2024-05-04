@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# print "best school" 10 times using while loop
+# print using while loop
 counter=1
 while [ $counter -le 10 ]; do
 	echo "Best School"
-	((counter++))
+ 	((counter++))
 done
