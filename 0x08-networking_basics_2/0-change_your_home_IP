@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# change home and facebook IP
+
+sudo bash -c 'echo -e "127.0.0.2\tlocalhost" >> /etc/hosts'
+sudo bash -c 'echo -e "8.8.8.8\tfacebook.com" >> /etc/hosts'
