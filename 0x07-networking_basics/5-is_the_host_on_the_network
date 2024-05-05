@@ -5,6 +5,14 @@
 if [ $# -q 0]; then
 	echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
 	exit 1
+fi 
+
+# Check if the argument is an IP address
+if ! [[ "$1" =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+	echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
+	exit 1
 fi
 
+
 ping -c 5 "$1"
+exit
